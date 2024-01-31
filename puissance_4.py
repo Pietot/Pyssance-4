@@ -126,13 +126,18 @@ class IntelligenceArtificielle:
     """
 
     def coup_a_jouer(self) -> tuple[int, int]:
-        """ Trouve le meilleur coup en fonction des condition d'Audras
+        """ Trouve le meilleur en fonction de cette algoritme:
+        Le bot simule chaque coup possible en mettant un jeton dans une colonne de gauche à droite.
+        Ensuite il vérifie à chaque fois s'il peut faire un puissance 4. Si oui il joue ce coup,
+        sinon il vérifie si son adversaire peut faire un puissance 4. Si oui, il le pare sinon il
+        refait la même chose mais avec 3 jeton au lieu de 4, puis 2. S'il à trouvé aucun coup pour
+        aligner 2 jetons, il choisi un coup au hasard parmis les coups restants.
 
         Returns:
             int | Literal[True]: int pour la colonne ou faut jouer (pour l'animation tkinter),
             True si ya un puissance 4 et qu'il faut arrêter le jeu
             """
-        if np.all(jeu.grille == np.zeros((6, 7), dtype=np.int8)):  # type: ignore
+        if np.all(jeu.grille == np.zeros((6, 7), dtype=np.int8)):
             return jeu.update(3, 1)
 
         colonne_index = self.cherche_puissance_4() or self.cherche_puissance_4(
@@ -144,15 +149,12 @@ class IntelligenceArtificielle:
         for nb_jeton in reversed(range(2, 4)):
             colonne_index = (self.cherche_jeton_aligne(nb_jeton)
                              or self.cherche_jeton_aligne(nb_jeton, adversaire=True))
-
             if colonne_index is not None:
                 return colonne_index
 
-        while True:
-            try:
-                return jeu.update(random.randint(0, 6), 1)
-            except IndexError:
-                continue
+        zero_index = [index for index, valeur in enumerate(
+            jeu.grille[0]) if valeur == 0]
+        return jeu.update(random.choice(zero_index), 1)
 
     def cherche_puissance_4(self,
                             adversaire: bool = False) -> tuple[int, int] | None:
