@@ -43,7 +43,7 @@ class Puissance4:
         assert self.grille.shape == (6, 7)
 
         for ligne_index, ligne in enumerate(reversed(self.grille), start=-5):
-            if np.any(ligne[colonne_index] == 0):  # type: ignore
+            if np.any(ligne[colonne_index] == 0):
                 ligne[colonne_index] = numero_joueur
                 return abs(ligne_index), colonne_index
         raise IndexError('La colonne est remplie')
@@ -254,6 +254,7 @@ while True:
     col_bot, ligne_bot = bot.coup_a_jouer()
     os.system('cls')
     print(jeu.grille)
+    print('\n  1 2 3 4 5 6 7')
     if jeu.gagnant(col_bot, ligne_bot, 1):
         print("ORDI WIN")
         break
