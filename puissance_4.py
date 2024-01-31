@@ -97,7 +97,7 @@ class Puissance4:
 
         diagonale_principale = self.grille.diagonal(
             offset_diagonale_principale)
-        diagonale_annexe = np.fliplr(self.grille).diagonal(  # type: ignore
+        diagonale_annexe = np.fliplr(self.grille).diagonal(
             offset_diagonale_annexe)
 
         return valeurs_ligne, valeurs_colonne, diagonale_principale, diagonale_annexe
