@@ -24,6 +24,12 @@ class Puissance4:
         ligne, colonnne = 6, 7
         self.grille = np.zeros((ligne, colonnne), dtype=np.int8)
 
+    def __str__(self) -> str:
+        token_map = {1: '🔴', 2: '🟡', 0: '  '}
+        grille = '\n'.join(
+            ''.join(token_map[jeton] for jeton in ligne) for ligne in self.grille)
+        return grille
+
     def update(self, colonne_index: int, numero_joueur: int) -> tuple[int, int]:
         """ Met à jour la matrice du puissance 4.
 
@@ -253,8 +259,8 @@ bot = IntelligenceArtificielle()
 while True:
     col_bot, ligne_bot = bot.coup_a_jouer()
     os.system('cls')
-    print(jeu.grille)
-    print('\n  1 2 3 4 5 6 7')
+    print(jeu)
+    print(' 1 2 3 4 5 6 7')
     if jeu.gagnant(col_bot, ligne_bot, 1):
         print("ORDI WIN")
         break
