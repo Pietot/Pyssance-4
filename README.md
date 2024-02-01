@@ -20,4 +20,4 @@ Une fois le programme lancé, simplement indiquer la colonne ou vous voulez plac
 
 ![Texet alternatif](./assets/Screen2.png)
 
-![Texet alternatif](./assets/Screen2.png)
+![Texet alternatif](./assets/Screen3.png)
