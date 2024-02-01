@@ -267,6 +267,9 @@ while True:
     col_user = int(input('colonne:\n'))-1
     ligne_user, colone_user = jeu.update(col_user, 2)
     if jeu.gagnant(ligne_user, col_user, 2):
+        os.system('cls')
+        print(jeu)
+        print(' 1 2 3 4 5 6 7')
         print("HUMAIN WIN")
         break
 input()
