@@ -14,7 +14,7 @@
 
 ## Comment jouer ?
 
-Une fois le programme lancé, simplement indiquer la colonne ou vous voulez placer votre jeton. Vous êtes les jaunes, l'ordinateur les rouges. Il faut aligner 4 jetons horizontalement ou verticalement ou diagonnalement pour gagner !
+Une fois le programme lancé, simplement indiquer la colonne où vous voulez placer votre jeton. Vous êtes les jaunes, l'ordinateur les rouges. Il faut aligner 4 jetons horizontalement ou verticalement ou diagonalement pour gagner !
 
 ![Texte alternatif](./assets/Screen1.png)
 
